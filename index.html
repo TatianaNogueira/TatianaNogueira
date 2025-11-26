@@ -72,45 +72,43 @@
         overflow: hidden;
         border-radius: 1rem;
         background: white;
+        display: flex;
+        flex-direction: column;
       }
 
-      .image-comparison {
+      .portfolio-image-container {
         position: relative;
         width: 100%;
-        aspect-ratio: 3/4;
+        aspect-ratio: 1;
         overflow: hidden;
+        background: #f5f5f5;
       }
 
-      .comparison-images {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2px;
-        height: 100%;
-      }
-
-      .comparison-image {
+      .portfolio-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
       }
 
-      .comparison-label {
-        position: absolute;
-        top: 1rem;
-        background: rgba(0, 0, 0, 0.7);
-        color: white;
-        padding: 0.5rem 1rem;
-        font-size: 0.875rem;
-        font-weight: 500;
-        letter-spacing: 0.05em;
+      #whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: transform 0.3s ease;
       }
 
-      .label-before {
-        left: 1rem;
-      }
-
-      .label-after {
-        right: 1rem;
+      #whatsapp-button:hover {
+        transform: scale(1.1);
       }
     </style>
   </head>
@@ -198,7 +196,6 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="pt-28 sm:pt-32 pb-16 sm:pb-20 soft-pink-bg">
-      <!-- Deployment Trigger -->
       <div class="container mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div class="max-w-4xl mx-auto text-center">
           <img
@@ -372,23 +369,14 @@
         </div>
 
         <div class="gallery-container max-w-5xl mx-auto">
-          <!-- Before/After 1 -->
+          <!-- Portfolio 1 -->
           <div class="before-after-card elegant-border hover-lift">
-            <div class="image-comparison">
-              <div class="comparison-images">
-                <img
-                  src="assets/preenchimento-labial-antes.jpeg"
-                  alt="Antes do procedimento"
-                  class="comparison-image"
-                />
-                <img
-                  src="assets/preenchimento-labial-depois.jpeg"
-                  alt="Depois do procedimento"
-                  class="comparison-image"
-                />
-              </div>
-              <span class="comparison-label label-before">ANTES</span>
-              <span class="comparison-label label-after">DEPOIS</span>
+            <div class="portfolio-image-container">
+              <img
+                src="assets/portfolio/labial-01.jpeg"
+                alt="Preenchimento Labial - Antes e Depois"
+                class="portfolio-image"
+              />
             </div>
             <div class="p-4 sm:p-6">
               <h3
@@ -398,6 +386,69 @@
               </h3>
               <p class="text-gray-600 text-center text-sm sm:text-base">
                 Resultado natural com volume equilibrado
+              </p>
+            </div>
+          </div>
+
+          <!-- Portfolio 2 -->
+          <div class="before-after-card elegant-border hover-lift">
+            <div class="portfolio-image-container">
+              <img
+                src="assets/portfolio/labial-02.jpeg"
+                alt="Preenchimento Labial - Antes e Depois"
+                class="portfolio-image"
+              />
+            </div>
+            <div class="p-4 sm:p-6">
+              <h3
+                class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 text-center"
+              >
+                Preenchimento Labial
+              </h3>
+              <p class="text-gray-600 text-center text-sm sm:text-base">
+                Volume e definição com aspecto natural
+              </p>
+            </div>
+          </div>
+
+          <!-- Portfolio 3 -->
+          <div class="before-after-card elegant-border hover-lift">
+            <div class="portfolio-image-container">
+              <img
+                src="assets/portfolio/labial-03.jpeg"
+                alt="Preenchimento Labial - Antes e Depois"
+                class="portfolio-image"
+              />
+            </div>
+            <div class="p-4 sm:p-6">
+              <h3
+                class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 text-center"
+              >
+                Preenchimento Labial
+              </h3>
+              <p class="text-gray-600 text-center text-sm sm:text-base">
+                Harmonização facial personalizada
+              </p>
+            </div>
+          </div>
+
+          <!-- Portfolio 4 -->
+          <div class="before-after-card elegant-border hover-lift">
+            <div class="portfolio-image-container">
+              <img
+                src="assets/portfolio/labial-04.jpeg"
+                alt="Preenchimento Labial - Antes e Depois"
+                class="portfolio-image"
+              />
+            </div>
+            <div class="p-4 sm:p-6">
+              <h3
+                class="text-lg sm:text-xl font-semibold text-gray-800 mb-2 text-center"
+              >
+                Preenchimento Labial
+              </h3>
+              <p class="text-gray-600 text-center text-sm sm:text-base">
+                Realce sutil e elegante
               </p>
             </div>
           </div>
@@ -452,17 +503,6 @@
                 Anos de Experiência na Área da Saúde
               </p>
             </div>
-            <!-- <div -->
-            <!--   class="text-center elegant-border rounded-2xl p-6 sm:p-8 soft-pink-bg" -->
-            <!-- > -->
-            <!--   <div class="text-4xl sm:text-5xl font-bold rose-gold mb-3"> -->
-            <!--     1000+ -->
-            <!--   </div> -->
-            <!--   <div class="decorative-line mx-auto mb-3"></div> -->
-            <!--   <p class="text-gray-600 tracking-wide text-sm sm:text-base"> -->
-            <!--     Clientes Satisfeitos -->
-            <!--   </p> -->
-            <!-- </div> -->
             <div
               class="text-center elegant-border rounded-2xl p-6 sm:p-8 soft-pink-bg sm:col-span-2 lg:col-span-1"
             >
@@ -479,6 +519,7 @@
       </div>
     </section>
 
+    <!-- Contato -->
     <section
       id="contato"
       class="pt-28 sm:pt-32 py-16 sm:py-20 md:py-24 bg-white text-center"
@@ -525,10 +566,16 @@
     >
       <img
         src="https://framerusercontent.com/images/I5JycHzDls9fs2r5fGWTaliP6Q.png?width=512&height=512"
+        alt="WhatsApp"
         class="w-8 h-8"
       />
     </a>
 
-    <script src="js/main.js"></script>
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
+      }
+    </script>
   </body>
 </html>
