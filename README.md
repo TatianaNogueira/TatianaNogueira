@@ -1,6 +1,6 @@
 # Site de Estética Avançada
 
-Este projeto visa a criação de um site para um negócio de estética avançada, seguindo diretrizes específicas de estrutura, tecnologias e boas práticas de desenvolvimento.
+Este projeto visa a criação do site da Dra Tati Mayumi Estética Avançada, seguindo diretrizes específicas de estrutura, tecnologias e boas práticas de desenvolvimento.
 
 ## 🚀 Tecnologias Utilizadas
 
