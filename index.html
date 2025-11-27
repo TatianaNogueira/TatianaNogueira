@@ -497,7 +497,9 @@
                 alt="Dra. Tati Mayumi realizando procedimento"
                 class="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full object-cover shadow-2xl elegant-border"
               />
-              <div class="absolute -bottom-4 -right-4 rose-gold-bg text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center shadow-lg">
+              <div
+                class="absolute -bottom-4 -right-4 rose-gold-bg text-white rounded-full w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center shadow-lg"
+              >
                 <div class="text-center">
                   <div class="text-xl sm:text-2xl font-bold">10+</div>
                   <div class="text-xs sm:text-sm">Anos</div>
@@ -553,6 +555,103 @@
             Estamos prontas para te atender! Fale conosco diretamente pelo
             WhatsApp para agendar sua consulta ou tirar suas dúvidas.
           </p>
+
+          <!-- Endereço da Clínica -->
+          <div
+            class="mb-8 sm:mb-10 elegant-border rounded-2xl p-6 sm:p-8 soft-pink-bg max-w-xl mx-auto"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full rose-gold-bg bg-opacity-10 flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 rose-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">
+              Nosso Endereço
+            </h3>
+            <p class="text-gray-700 text-base sm:text-lg mb-4">
+              Rua Catiguá, 159 - Tatuapé<br />
+              São Paulo, SP - CEP 03065-030
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Rua+Catiguá,+159,+São+Paulo,+Brazil,+03065030"
+              class="inline-block text-rose-gold hover:underline text-sm sm:text-base"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver no Google Maps →
+            </a>
+          </div>
+
+          <!-- Formas de Pagamento -->
+          <div
+            class="mb-8 sm:mb-10 elegant-border rounded-2xl p-6 sm:p-8 soft-pink-bg max-w-xl mx-auto"
+          >
+            <div class="flex items-center justify-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full rose-gold-bg bg-opacity-10 flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 rose-gold"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">
+              Formas de Pagamento
+            </h3>
+            <p class="text-gray-700 text-base sm:text-lg mb-6">
+              Aceitamos cartões de crédito e débito com parcelamento disponível
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4 mb-4">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                alt="Visa"
+                class="h-8 sm:h-10 w-auto"
+              />
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                alt="Mastercard"
+                class="h-8 sm:h-10 w-auto"
+              />
+            </div>
+            <p class="text-gray-600 text-sm sm:text-base">
+              <span class="rose-gold font-semibold"
+                >• Parcele seus procedimentos</span
+              ><br />
+              <span class="rose-gold font-semibold">• PIX aceito</span> para
+              pagamento à vista
+            </p>
+          </div>
+
           <a
             href="https://wa.me/5511976713350?text=Olá! Gostaria de agendar um horário."
             class="inline-block rose-gold-bg text-white px-8 sm:px-12 py-3 sm:py-4 rounded-full hover-rose transition text-base sm:text-lg"
@@ -590,8 +689,8 @@
 
     <script>
       function toggleMenu() {
-        const menu = document.getElementById('mobileMenu');
-        menu.classList.toggle('hidden');
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("hidden");
       }
     </script>
   </body>
