@@ -83,10 +83,15 @@ O site pode incluir funcionalidades como:
 -   Formulário de contato que abre o WhatsApp.
 -   Galeria de portfólio.
 
-## 🚀 Deploy com GitHub Pages (SPA)
+## 🚀 Publicação (Deploy)
 
-O deploy é configurado para GitHub Pages como um Single-Page Application (SPA) via GitHub Actions (`.github/workflows/deploy.yml`). O workflow:
+O site é servido como um **Single-Page Application (SPA)** e publicado automaticamente no GitHub Pages a cada `push` na branch `main`.
 
-1.  Instala dependências (se houver).
-2.  Copia `index.html`, `assets/` e `js/` para `dist/`.
-3.  Publica o conteúdo de `dist/` no GitHub Pages.
+O domínio principal é **[https://dratatimayumi.com](https://dratatimayumi.com)**, registrado e gerenciado através da **Hostinger**.
+
+O processo de deploy é definido no workflow do GitHub Actions em `.github/workflows/deploy.yml`. Ele executa os seguintes passos:
+1.  Cria um diretório temporário `dist/`.
+2.  Copia os arquivos `index.html`, `assets/` e `js/` para dentro do `dist/`.
+3.  Publica o conteúdo do `dist/` no GitHub Pages.
+
+**Observação:** O diretório `dist/` é usado apenas durante o processo de publicação e não faz parte do repositório.

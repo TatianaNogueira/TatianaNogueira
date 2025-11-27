@@ -87,12 +87,14 @@ Desde que siga as regras de estrutura e boas práticas acima.
 ---
 
 ## 🚀 Deploy com GitHub Pages (SPA)
-O deploy do site para o GitHub Pages é configurado para funcionar como um Single-Page Application (SPA). O workflow do GitHub Actions (`.github/workflows/deploy.yml`) é responsável por:
-1.  Instalar as dependências do projeto (se houver).
-2.  Copiar o `index.html`, a pasta `assets/` e a pasta `js/` para o diretório `dist/`.
-3.  Publicar o conteúdo do diretório `dist/` no GitHub Pages.
+O deploy do site é feito para o GitHub Pages e está configurado para funcionar como um Single-Page Application (SPA), acessível através do domínio **https://dratatimayumi.com**, registrado na Hostinger.
 
-Isso garante que apenas os arquivos essenciais para o funcionamento do site sejam servidos, mantendo a estrutura de SPA.
+O processo é automatizado pelo workflow do GitHub Actions, definido em `.github/workflows/deploy.yml`. As etapas principais são:
+1.  Um diretório `dist/` é criado dinamicamente durante a execução do workflow. **Este diretório não existe no repositório**.
+2.  Os arquivos essenciais (`index.html`, `assets/`, `js/`) são copiados para o `dist/`.
+3.  O conteúdo do `dist/` é publicado no GitHub Pages.
+
+Isso garante que apenas os arquivos necessários sejam servidos, mantendo a integridade da SPA e otimizando a publicação.
 
 ---
 
