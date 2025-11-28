@@ -85,7 +85,7 @@ O site pode incluir funcionalidades como:
 
 ## 🚀 Publicação (Deploy)
 
-O site é servido como um **Single-Page Application (SPA)** e publicado automaticamente via **FTP** a cada `push` na branch `main`.
+O site é servido como um **Single-Page Application (SPA)** e publicado via **FTP** através de execução manual do workflow do GitHub Actions.
 
 O domínio principal é **[https://dratatimayumi.com](https://dratatimayumi.com)**, registrado e gerenciado através da **Hostinger**.
 
@@ -104,7 +104,14 @@ Para que o deploy funcione corretamente, é necessário configurar os seguintes 
 
 #### Processo de Deploy
 
-A cada push na branch `main`, o workflow executa os seguintes passos:
+Para executar o deploy manualmente:
+1.  Acesse a aba **Actions** no repositório do GitHub
+2.  Selecione o workflow **Deploy via FTP**
+3.  Clique no botão **Run workflow**
+4.  Escolha a branch desejada (geralmente `main`)
+5.  Clique em **Run workflow** para confirmar
+
+O workflow executa os seguintes passos:
 1.  Faz checkout do repositório
 2.  Envia todos os arquivos do projeto para o servidor FTP, excluindo:
     -   Arquivos e diretórios `.git`
