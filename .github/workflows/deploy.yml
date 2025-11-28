@@ -53,25 +53,10 @@ jobs:
           echo "Usuário: $FTP_USERNAME"
           echo "Caminho remoto: $FTP_REMOTE_PATH"
           echo ""
+          echo "Iniciando sincronização via lftp..."
+          echo ""
 
-          lftp -d -u "$FTP_USERNAME,$FTP_PASSWORD" -p 21 ftp://"$FTP_SERVER" <<EOF
-          set debug 10
-          set dns:order "inet"
-          set ssl:verify-certificate no
-          set ftp:ssl-allow no
-          set net:timeout 10
-          set net:max-retries 3
-          set net:reconnect-interval-base 5
-
-          echo "Navegando para o diretório remoto..."
-          cd $FTP_REMOTE_PATH || exit 1
-
-          echo "Sincronizando arquivos..."
-          mirror --reverse --delete --verbose --parallel=3 ./ ./
-
-          echo "Deploy concluído!"
-          bye
-          EOF
+          lftp -d -e "set debug 10; set dns:order inet; set ssl:verify-certificate no; set ftp:ssl-allow no; set net:timeout 10; set net:max-retries 3; set net:reconnect-interval-base 5; mirror -R --delete --verbose --parallel=3 ./ $FTP_REMOTE_PATH; quit" -u $FTP_USERNAME,$FTP_PASSWORD -p 21 ftp://$FTP_SERVER
 
           if [ $? -eq 0 ]; then
             echo ""
