@@ -85,38 +85,34 @@ O site pode incluir funcionalidades como:
 
 ## 🚀 Publicação (Deploy)
 
-O site é servido como um **Single-Page Application (SPA)** e publicado via **FTP** através de execução manual do workflow do GitHub Actions.
+O site é servido como um **Single-Page Application (SPA)** e publicado via **SFTP** através de execução manual do workflow do GitHub Actions.
 
 O domínio principal é **[https://dratatimayumi.com](https://dratatimayumi.com)**, registrado e gerenciado através da **Hostinger**.
 
 ### Configuração do Deploy
 
-O processo de deploy é definido no workflow do GitHub Actions em `.github/workflows/deploy.yml`. Ele utiliza FTP para enviar os arquivos diretamente para o servidor de hospedagem.
+O processo de deploy é definido no workflow do GitHub Actions em `.github/workflows/deploy.yml`. Ele utiliza SFTP para enviar os arquivos diretamente para o servidor de hospedagem.
 
 #### Secrets Necessários
 
 Para que o deploy funcione corretamente, é necessário configurar os seguintes secrets no repositório do GitHub (Settings → Secrets and variables → Actions):
 
--   **`FTP_SERVER`**: Endereço do servidor FTP (ex: `ftp.seuservidor.com`)
--   **`FTP_USERNAME`**: Nome de usuário FTP
--   **`FTP_PASSWORD`**: Senha do usuário FTP
--   **`FTP_SERVER_DIR`**: Diretório de destino no servidor (ex: `/public_html/` ou `/`)
+-   **`SFTP_SERVER`**: Endereço do servidor SFTP da Hostinger (geralmente algo como `ssh.hostinger.com` ou similar)
+-   **`SFTP_USERNAME`**: Nome de usuário SFTP (geralmente o mesmo do cPanel)
+-   **`SFTP_PASSWORD`**: Senha do usuário SFTP
+-   **`SFTP_REMOTE_PATH`**: Diretório de destino no servidor (ex: `/public_html/` ou `/domains/dratatimayumi.com/public_html/`)
 
 #### Processo de Deploy
 
 Para executar o deploy manualmente:
 1.  Acesse a aba **Actions** no repositório do GitHub
-2.  Selecione o workflow **Deploy via FTP**
+2.  Selecione o workflow **Deploy via SFTP**
 3.  Clique no botão **Run workflow**
 4.  Escolha a branch desejada (geralmente `main`)
 5.  Clique em **Run workflow** para confirmar
 
 O workflow executa os seguintes passos:
 1.  Faz checkout do repositório
-2.  Envia todos os arquivos do projeto para o servidor FTP, excluindo:
-    -   Arquivos e diretórios `.git`
-    -   `node_modules/`
-    -   `.github/`
-    -   `README.md`
+2.  Envia todos os arquivos do projeto para o servidor via SFTP
 
 **Observação:** Os arquivos são enviados diretamente do repositório para o servidor, sem necessidade de diretório intermediário.
