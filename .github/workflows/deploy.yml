@@ -49,6 +49,10 @@ jobs:
             echo "⚠️  FTP_REMOTE_PATH não configurado, usando padrão: $FTP_REMOTE_PATH"
           fi
 
+          # Remover prefixo ftp:// ou sftp:// do FTP_SERVER se existir
+          FTP_SERVER=${FTP_SERVER#ftp://}
+          FTP_SERVER=${FTP_SERVER#sftp://}
+
           echo "Servidor: $FTP_SERVER"
           echo "Usuário: $FTP_USERNAME"
           echo "Caminho remoto: $FTP_REMOTE_PATH"
@@ -56,7 +60,19 @@ jobs:
           echo "Iniciando sincronização via lftp..."
           echo ""
 
-          lftp -d -e "set debug 10; set dns:order inet; set ssl:verify-certificate no; set ftp:ssl-allow no; set net:timeout 10; set net:max-retries 3; set net:reconnect-interval-base 5; mirror -R --delete --verbose --parallel=3 ./ $FTP_REMOTE_PATH; quit" -u $FTP_USERNAME,$FTP_PASSWORD -p 21 ftp://$FTP_SERVER
+          lftp -c "
+          set debug 10
+          set dns:order inet
+          set ssl:verify-certificate no
+          set ftp:ssl-allow no
+          set net:timeout 30
+          set net:max-retries 3
+          set net:reconnect-interval-base 5
+          set ftp:passive-mode on
+          open -u $FTP_USERNAME,$FTP_PASSWORD -p 21 ftp://$FTP_SERVER
+          mirror -R --delete --verbose --parallel=3 ./ $FTP_REMOTE_PATH
+          quit
+          "
 
           if [ $? -eq 0 ]; then
             echo ""
