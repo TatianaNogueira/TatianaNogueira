@@ -706,10 +706,33 @@
     </a>
 
     <script>
+      // Configuração centralizada do WhatsApp
+      const WHATSAPP_CONFIG = {
+        number: "5511945575694",
+        defaultMessage: "Olá! Gostaria de agendar um horário.",
+      };
+
+      // Gera o link do WhatsApp
+      function getWhatsAppLink(message = WHATSAPP_CONFIG.defaultMessage) {
+        return `https://wa.me/${WHATSAPP_CONFIG.number}?text=${encodeURIComponent(message)}`;
+      }
+
+      // Atualiza todos os links de WhatsApp na página
+      function updateWhatsAppLinks() {
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+        whatsappLinks.forEach((link) => {
+          link.href = getWhatsAppLink();
+        });
+      }
+
+      // Função do menu mobile
       function toggleMenu() {
         const menu = document.getElementById("mobileMenu");
         menu.classList.toggle("hidden");
       }
+
+      // Inicializa quando a página carregar
+      document.addEventListener("DOMContentLoaded", updateWhatsAppLinks);
     </script>
   </body>
 </html>
